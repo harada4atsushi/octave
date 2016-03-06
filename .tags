@@ -1,0 +1,3 @@
+sigmoidGradient	/Users/harada/source_code/octave/machine-learning-ex4/ex4/sigmoidGradient.m	/^function g = sigmoidGradient(z)$/;"	function	line:1
+randInitializeWeights	/Users/harada/source_code/octave/machine-learning-ex4/ex4/randInitializeWeights.m	/^function W = randInitializeWeights(L_in, L_out)$/;"	function	line:1
+nnCostFunction	/Users/harada/source_code/octave/machine-learning-ex4/ex4/nnCostFunction.m	/^function [J grad] = nnCostFunction(nn_params, ...$/;"	function	line:1
