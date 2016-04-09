@@ -23,7 +23,7 @@ sqrErrors = (predictions-y).^2;
 J = 1 / (2*m) * sum(sqrErrors);
 J = J + lambda / (2 * m) * sum(theta(2:size(theta)) .^ 2);
 
-grad_if_theta_1 = 1 / m * sum((X * theta - y) .* X)
+grad_if_theta_1 = 1 / m * sum((X * theta - y) .* X);
 grad = 1 / m * sum((X * theta - y) .* X) + (lambda / m * theta)';
 grad(1) = grad_if_theta_1(1);
 % =========================================================================
