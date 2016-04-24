@@ -23,17 +23,27 @@ sigma = 0.3;
 %        mean(double(predictions ~= yval))
 %
 
-% train
-model= svmTrain(X, y, C, @(x1, x2) gaussianKernel(x1, x2, sigma));
+PARAMS = [0.01, 0.03, 0.1, 0.3, 1, 3, 10, 30];
 
-% loss validation
-predictions = svmPredict(model, Xval)
+params = [];
+for C = PARAMS
+  for sigma = PARAMS
+    model= svmTrain(X, y, C, @(x1, x2) gaussianKernel(x1, x2, sigma));
+    predictions = svmPredict(model, Xval);
+    meanval  = mean(double(predictions ~= yval));
+    params = [params;[meanval, C sigma]];
+  end
+end
 
+params
+minval = min(params)(1)
 
-
-
-
-
+for param = params'
+  if param(1) == minval
+    C = param(2);
+    sigma = param(3);
+  end
+end
 
 % =========================================================================
 
